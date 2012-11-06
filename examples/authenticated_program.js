@@ -5,7 +5,7 @@ var replfactory = require('../lib/replcator');
 
 var repl = replfactory.getInstance({
     bootstrap: function(repl) {
-        console.log('Welcome to Replcator v0.0.2 (c) Brian Carr.\n' +
+        console.log('Welcome to Replcator v0.1.0 (c) Brian Carr.\n' +
             'Authenticated Program Example.  MIT License.');
     },
     teardown: function(repl) {
@@ -18,18 +18,21 @@ var repl = replfactory.getInstance({
 });
 
 repl.on('login', function(repl) {
-
-    repl.ask(">> username: ", function(username) {
-        repl.setAttr('username', username);
-        repl.secret(">> password: ", function(password) {
-            repl.setAttr('password', password);
-            console.log('... Success!');
-            console.log("Your password is '%s'", password);
-            repl.setPrompt('>> ' + username + ': ');
-            repl.next();
+    if (repl.getAttr('username')) {
+        console.log("You're already logged in as $s", repl.getAttr('username'));
+        repl.next();
+    } else {
+        repl.ask(">> username: ", function(username) {
+            repl.setAttr('username', username);
+            repl.secret(">> password: ", function(password) {
+                repl.setAttr('password', password);
+                console.log('... Success!');
+                console.log("Your password is '%s'", password);
+                repl.setPrompt('>> ' + username + ': ');
+                repl.next();
+            });
         });
-    });
-
+    }
 });
 
 repl.on('whoami', function(repl) {
