@@ -1,8 +1,8 @@
 {
     "author": "Brian Carr <bcarr14@gmail.com>",
     "name": "replcator",
-    "description": "Easily create and deploy context-sensitive read-eval-print-loop apps with Nodejs.",
-    "version": "0.0.1",
+    "description": "Quickly create read-eval-print-loop apps.",
+    "version": "0.1.0",
     "repository": {
         "type": "git",
         "url": "http://github.com/mrmarbles/replcator.git"
@@ -10,10 +10,6 @@
     "main": "index",
     "engines": {
         "node": "*"
-    },
-    "dependencies": {
-        "stringrouter": "0.2.6",
-        "commander": "1.0.5"
     },
     "devDependencies": {
         "nodeunit": ">= 0.7.4"

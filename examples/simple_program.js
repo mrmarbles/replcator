@@ -1,10 +1,25 @@
-/**
- * Run this program with "node simple_program.js"
+/*
+ * To run 'node simple_program.js'
  */
-var repl = require('../lib/replcator').getInstance();
+var replfactory = require('../lib/replcator');
 
-repl.on('echo {text:.*}', function(repl) {
-    console.log("You said: %s", repl.getAttr('text'));
+var repl = replfactory.getInstance();
+
+repl.on('hello', function(repl) {
+    console.log('world');
+    repl.next();
+});
+
+repl.on('goodbye', function(repl) {
+    console.log('You said goodbye.');
+    repl.next();
+});
+
+repl.on('secretme', function(repl) {
+    repl.secret('Say something secret: ', function(secret) {
+        console.log('Your secret is %s', secret);
+        repl.next();
+    });
 });
 
 repl.start();
