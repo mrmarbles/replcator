@@ -1,31 +1,32 @@
 {
-    "author": "Brian Carr <bcarr14@gmail.com>",
-    "name": "replcator",
-    "description": "Quickly create read-eval-print-loop apps.",
-    "version": "0.1.0",
-    "repository": {
-        "type": "git",
-        "url": "http://github.com/mrmarbles/replcator.git"
-    },
-    "main": "index",
-    "engines": {
-        "node": "*"
-    },
-    "devDependencies": {
-        "nodeunit": ">= 0.7.4"
-    },
-    "scripts": {
-        "test": "nodeunit tests/"
-    },
-    "keywords": [
-        "cli",
-        "repl",
-        "read-eval-print-loop",
-        "read",
-        "eval",
-        "print",
-        "loop",
-        "program"
-    ],
-    "license": "MIT"
+  "author": "Brian Carr <bcarr14@gmail.com>",
+  "name": "replcator",
+  "description": "Read-eval-print loop (REPL) application framework for Nodejs.",
+  "version": "0.1.1",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/mrmarbles/replcator.git"
+  },
+  "main": "index",
+  "engines": {
+    "node": "*"
+  },
+  "devDependencies": {
+    "nodeunit": ">= 0.7.4"
+  },
+  "scripts": {
+    "test": "nodeunit tests/"
+  },
+  "keywords": [
+    "cli",
+    "repl",
+    "read-eval-print-loop",
+    "read",
+    "eval",
+    "print",
+    "loop",
+    "program",
+    "framework"
+  ],
+  "license": "MIT"
 }

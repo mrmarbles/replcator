@@ -1,4 +1,4 @@
 replcator
 =========
 
-Easily create and deploy context-sensitive read-eval-print-loop apps with Nodejs.
+A Read-eval-print loop (REPL) application framework for Nodejs.

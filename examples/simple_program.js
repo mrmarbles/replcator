@@ -3,14 +3,15 @@
  */
 var repl = require('../lib/replcator').getInstance();
 
-repl.on('hello', function(repl) {
-    console.log('world');
-    repl.next();
+repl.on('hello world', function(repl) {
+  repl.setAttr('hello', 'world');
+  console.log('You said hello %s', repl.getAttr('hello'));
+  repl.next();
 });
 
 repl.on('goodbye', function(repl) {
-    console.log('You said goodbye.');
-    repl.next();
+  console.log('You said goodbye.');
+  repl.next();
 });
 
 repl.start();
