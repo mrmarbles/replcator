@@ -2,7 +2,7 @@
   "author": "Brian Carr <bcarr14@gmail.com>",
   "name": "replcator",
   "description": "Read-eval-print loop (REPL) application framework for Nodejs.",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "repository": {
     "type": "git",
     "url": "http://github.com/mrmarbles/replcator.git"
@@ -10,6 +10,9 @@
   "main": "index",
   "engines": {
     "node": "*"
+  },
+  "dependencies": {
+    "keypress": "0.1.0"
   },
   "devDependencies": {
     "nodeunit": ">= 0.7.4"
