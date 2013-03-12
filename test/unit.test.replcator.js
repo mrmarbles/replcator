@@ -2,6 +2,11 @@ var replcator = require('../lib/replcator');
 
 module.exports = {
 
+  setUp: function(callback) {
+    this.repl = replcator.getInstance();
+    callback();
+  },
+
   "Test config prompt": function(test) {
     var repl = replcator.getInstance({
         prompt: '>> hello world: '
@@ -11,9 +16,8 @@ module.exports = {
   },
 
   "Test set/get prompt": function(test) {
-    var repl = replcator.getInstance();
-    repl.setPrompt('hello world');
-    test.equals('hello world', repl.getPrompt());
+    this.repl.setPrompt('hello world');
+    test.equals('hello world', this.repl.getPrompt());
     test.done();
   },
 
@@ -31,26 +35,37 @@ module.exports = {
   },
 
   "Test set/get/has program attributes": function(test) {
-    var repl = replcator.getInstance();
-    repl.setAttr('one', 'two');
-    repl.setAttr('three', 'four');
-    test.ok(repl.hasAttr('one'));
-    test.ok(repl.hasAttr('three'));
-    test.equals('two', repl.getAttr('one'));
-    test.equals('four', repl.getAttr('three'));
+    this.repl.setAttr('one', 'two');
+    this.repl.setAttr('three', 'four');
+    test.ok(this.repl.hasAttr('one'));
+    test.ok(this.repl.hasAttr('three'));
+    test.equals('two', this.repl.getAttr('one'));
+    test.equals('four', this.repl.getAttr('three'));
     test.done();
   },
 
-  "Test select": function(test) {
-    var repl = replcator.getInstance();
-    repl.on('select me', function(repl) {
+  "Test simple select": function(test) {
+
+    this.repl.on('select me', function(repl) {
       test.ok(repl.hasAttr('hello'));
       test.equals('world', repl.getAttr('hello'));
       test.done();
     });
 
-    repl.setAttr('hello', 'world');
-    repl.select('select me');
+    this.repl.setAttr('hello', 'world');
+    this.repl.select('select me');
+  },
+
+  "Test complex select": function(test) {
+
+    this.repl.on('echo {text}', function(repl, options) {
+      test.ok(options.text);
+      test.equals('hi', options.text);
+      test.done();
+    });
+
+    this.repl.select('echo hi');
+
   },
 
   "Test config teardown": function(test) {

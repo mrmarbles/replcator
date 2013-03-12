@@ -3,9 +3,12 @@
  */
 var repl = require('../lib/replcator').getInstance();
 
-repl.on('hello world', function(repl) {
-  repl.setAttr('hello', 'world');
-  console.log('You said hello %s', repl.getAttr('hello'));
+/**
+ * To execute this controller, enter in any 'do ******' string
+ * into the console.
+ */
+repl.on('do {something}', function(repl, options) {
+  console.log('You want to do %s', options.something);
   repl.next();
 });
 
