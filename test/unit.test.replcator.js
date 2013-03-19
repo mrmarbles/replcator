@@ -23,10 +23,11 @@ module.exports = {
 
   "Test config bootstrap": function(test) {
     var repl = replcator.getInstance({
-      bootstrap: function(repl) {
+      bootstrap: function(repl, callback) {
         test.ok(repl.getConfig());
         test.equals('testing', repl.getConfig().prompt);
         test.done();
+        callback();
       },
       prompt: 'testing',
       debug: true

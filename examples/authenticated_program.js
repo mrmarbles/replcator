@@ -2,13 +2,14 @@
  * To run 'node authenticated_program.js'
  */
 var repl = require('../lib/replcator').getInstance({
-  bootstrap: function(repl) {
-    console.log('Welcome to Replcator v0.1.0 (c) Brian Carr.\n' +
+  bootstrap: function(repl, callback) {
+    console.log('Welcome to Replcator v0.2.2 (c) Brian Carr.\n' +
         'Authenticated Program Example.  MIT License.');
+    callback(); // required in order to indicate that app boostrapping is complete
   },
   teardown: function(repl) {
     console.log('Adios amigos!');
-    process.stdin.destroy();
+    repl.exit(); // if teardown is declared, then exit() must be invoked manually
   },
   start: 'login',
   prompt: '>> command: '
