@@ -2,7 +2,7 @@
 
 replcator
 =========
-A Read-eval-print loop (REPL) application framework for Nodejs.
+A Read-eval-print loop / REPL / CLI / command line interface application framework for Nodejs.
 
 Installation
 ---------------

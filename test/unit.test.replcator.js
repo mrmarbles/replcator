@@ -80,6 +80,16 @@ module.exports = {
       debug: true
     });
     repl.select('exit');
+  },
+
+  "Test overridden exit listener": function(test) {
+    var repl = replcator.getInstance({
+      debug: true
+    });
+    repl.on('exit', function(repl) {
+      test.done();
+    });
+    repl.select('exit');
   }
 
 };
